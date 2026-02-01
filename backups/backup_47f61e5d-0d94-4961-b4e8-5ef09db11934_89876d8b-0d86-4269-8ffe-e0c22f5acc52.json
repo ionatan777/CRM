@@ -1,0 +1,56 @@
+{
+  "tenant_id": "47f61e5d-0d94-4961-b4e8-5ef09db11934",
+  "created_at": "2026-02-01T00:24:49.104680",
+  "contacts": [
+    {
+      "id": "34d06156-a9d3-44f8-9028-1a03c04c7f98",
+      "name": "Test User",
+      "phone": "16315551181",
+      "tags": [
+        "VIP"
+      ],
+      "notes": [
+        {
+          "content": "Customer requested a demo on Friday.",
+          "date": "2026-01-31T23:59:00.577689+00:00"
+        }
+      ],
+      "conversations": [
+        {
+          "id": "6a5ef03e-d683-4e14-9fe5-2a41cb5b7ff5",
+          "status": "open",
+          "messages": [
+            {
+              "direction": "inbound",
+              "type": "text",
+              "content": "Hello Jarvis!",
+              "is_read": true,
+              "timestamp": "2026-01-31T23:45:15.926814+00:00"
+            },
+            {
+              "direction": "inbound",
+              "type": "text",
+              "content": "Hello Jarvis!",
+              "is_read": true,
+              "timestamp": "2026-01-31T23:47:02.672769+00:00"
+            },
+            {
+              "direction": "inbound",
+              "type": "text",
+              "content": "Hello Jarvis!",
+              "is_read": true,
+              "timestamp": "2026-01-31T23:49:04.959986+00:00"
+            },
+            {
+              "direction": "outbound",
+              "type": "text",
+              "content": "Hello from Jarvis Agent!",
+              "is_read": false,
+              "timestamp": "2026-01-31T23:49:04.980058+00:00"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
