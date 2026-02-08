@@ -46,7 +46,7 @@ const Login: React.FC = () => {
                             <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
                                 <ShieldCheck className="w-8 h-8 text-white" />
                             </div>
-                            <span className="text-2xl font-bold tracking-tight">ProCRM</span>
+                            <span className="text-2xl font-bold tracking-tight">WhatsBackup</span>
                         </div>
                         <h2 className="text-4xl font-bold leading-tight mb-4">
                             Manage your business relationships with confidence.
@@ -56,7 +56,7 @@ const Login: React.FC = () => {
                         </p>
                     </div>
                     <div className="relative z-10 text-sm text-blue-200">
-                        © 2024 ProCRM Inc. All rights reserved.
+                        © 2024 WhatsBackup Inc. All rights reserved.
                     </div>
                 </div>
 

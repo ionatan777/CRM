@@ -2,11 +2,14 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import DashboardLayout from './layouts/DashboardLayout';
-import Inbox from './pages/Inbox';
-import Contacts from './pages/Contacts';
+import DashboardHome from './pages/DashboardHome';
+import Pricing from './pages/Pricing';
+import ConnectExpress from './pages/ConnectExpress';
+import ConnectPro from './pages/ConnectPro';
+import BackupHistory from './pages/BackupHistory';
+import MessageSearch from './pages/MessageSearch';
 import Settings from './pages/Settings';
 import { useAuth, AuthProvider } from './context/AuthContext';
-import DashboardHome from './pages/DashboardHome';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const { isAuthenticated, isLoading } = useAuth();
@@ -32,8 +35,11 @@ const AppRoutes: React.FC = () => {
                         </ProtectedRoute>
                     }>
                         <Route index element={<DashboardHome />} />
-                        <Route path="inbox" element={<Inbox />} />
-                        <Route path="contacts" element={<Contacts />} />
+                        <Route path="pricing" element={<Pricing />} />
+                        <Route path="connect-express" element={<ConnectExpress />} />
+                        <Route path="connect-pro" element={<ConnectPro />} />
+                        <Route path="backups" element={<BackupHistory />} />
+                        <Route path="search" element={<MessageSearch />} />
                         <Route path="settings" element={<Settings />} />
                     </Route>
 

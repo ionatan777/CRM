@@ -1,31 +1,34 @@
-from sqlalchemy import Column, String, ForeignKey, DateTime, Enum, Text, Boolean
+from sqlalchemy import Column, String, Boolean, DateTime, ForeignKey, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
-import uuid
-import enum
 from app.db.session import Base
-
-class MessageType(str, enum.Enum):
-    TEXT = "text"
-    IMAGE = "image"
-    VIDEO = "video"
-    AUDIO = "audio"
-    DOCUMENT = "document"
-
-class MessageDirection(str, enum.Enum):
-    INBOUND = "inbound"
-    OUTBOUND = "outbound"
+import uuid
+from datetime import datetime
 
 class Message(Base):
     __tablename__ = "messages"
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
-    conversation_id = Column(UUID(as_uuid=True), ForeignKey("conversations.id"), nullable=False, index=True)
-    content = Column(Text, nullable=True)
-    type = Column(Enum(MessageType), default=MessageType.TEXT)
-    direction = Column(Enum(MessageDirection), nullable=False)
-    is_read = Column("is_read", Boolean, default=False)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-    conversation = relationship("Conversation", back_populates="messages")
+    
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
+    backup_id = Column(UUID(as_uuid=True), ForeignKey("backups.id"), nullable=True)
+    
+    # WhatsApp message data
+    whatsapp_message_id = Column(String, unique=True)
+    contact_name = Column(String)
+    contact_phone = Column(String, index=True)
+    
+    message_text = Column(Text)
+    message_type = Column(String, default="text")  # text, image, video, audio, document
+    source = Column(String, default="api")  # 'api' (Meta Business API) or 'baileys'
+    
+    timestamp = Column(DateTime, index=True)
+    is_from_me = Column(Boolean, default=False)
+    
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationships
+    user = relationship("User", backref="messages")
+    backup = relationship("Backup", backref="messages")
+    
+    def __repr__(self):
+        return f"<Message {self.id} from {self.contact_name}>"

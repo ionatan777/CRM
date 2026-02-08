@@ -1,25 +1,37 @@
-from sqlalchemy import Column, String, ForeignKey, DateTime, Enum, Boolean
+from sqlalchemy import Column, String, Boolean, DateTime, Integer, Text
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
-import uuid
-import enum
 from app.db.session import Base
-
-class UserRole(str, enum.Enum):
-    ADMIN = "ADMIN"
-    AGENT = "AGENT"
+import uuid
+from datetime import datetime
 
 class User(Base):
     __tablename__ = "users"
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, index=True)
-    email = Column(String, unique=True, index=True, nullable=False)
-    hashed_password = Column(String, nullable=False)
-    full_name = Column(String, nullable=True)
-    role = Column(Enum(UserRole), default=UserRole.ADMIN)
-    is_active = Column(Boolean, default=True)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
     
-    tenant_id = Column(UUID(as_uuid=True), ForeignKey("tenants.id"), nullable=False, index=True)
-    tenant = relationship("Tenant")
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    email = Column(String, unique=True, nullable=False, index=True)
+    hashed_password = Column(String, nullable=False)
+    full_name = Column(String)
+    phone_number = Column(String, nullable=True)
+    is_active = Column(Boolean, default=True)
+    
+    # Plan Information
+    plan_type = Column(String, default='express')  # 'express' or 'pro'
+    plan_status = Column(String, default='trial')  # 'trial', 'active', 'cancelled'
+    
+    # WhatsApp Business API Credentials (Pro Plan)
+    whatsapp_phone_id = Column(String, nullable=True)
+    whatsapp_access_token = Column(String, nullable=True)
+    
+    # Baileys Session (Express Plan)
+    baileys_session_id = Column(String, nullable=True)
+    baileys_auth_state = Column(Text, nullable=True)
+    
+    # Auto-backup settings
+    auto_backup_enabled = Column(Boolean, default=True)
+    backup_frequency_hours = Column(Integer, default=24)
+    
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    def __repr__(self):
+        return f"<User {self.email}>"
