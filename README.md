@@ -1,6 +1,6 @@
-# WhatsBackup - Protege tus Conversaciones de WhatsApp 🔒
+# WhatsBackup - Protege tus Conversaciones de WhatsApp 🔒💼
 
-**WhatsBackup** es la póliza de seguro para negocios que venden por WhatsApp. Respalda automáticamente todas tus conversaciones de WhatsApp Business, asegurando que tus mensajes de venta estén seguros aunque la app se caiga.
+**WhatsBackup** es la solución SaaS definitiva para negocios que venden por WhatsApp. Sistema de respaldo automático que protege todas tus conversaciones de WhatsApp Business con dos planes adaptados a tus necesidades.
 
 ---
 
@@ -10,42 +10,82 @@
 
 ### 💼 ¿Para quién?
 Negocios que dependen de WhatsApp para ventas y servicio al cliente:
-- Tiendas online que venden por WhatsApp
-- Agentes de bienes raíces
-- Distribuidores y mayoristas
-- Proveedores de servicios
+- 🛍️ Tiendas online que venden por WhatsApp
+- 🏠 Agentes de bienes raíces
+- 📦 Distribuidores y mayoristas
+- 🔧 Proveedores de servicios
+- 👔 Profesionales independientes
 
 ### 🎯 Problema que resuelve
 - ❌ "Perdí el historial de pedidos cuando cambié de teléfono"
 - ❌ "No encuentro esa conversación de hace 2 meses"
 - ❌ "WhatsApp se cayó y no puedo acceder a mis mensajes"
 - ❌ "Necesito documentar esta conversación para contabilidad"
+- ❌ "Me banearon la cuenta y perdí todo"
+
+---
+
+## 🎯 Sistema de Planes Dual
+
+### 🚀 Plan Express - $18/mes
+**Perfecto para emprendedores y pequeños negocios**
+
+- ✅ Conexión por **QR Code** (sin Meta Business API)
+- ✅ Hasta **5,000 mensajes** respaldados
+- ✅ Backup automático cada **12 horas**
+- ✅ Búsqueda de mensajes completa
+- ✅ Exportación a PDF
+- ✅ Historial ilimitado
+- 🔄 Tecnología: **Baileys** (WhatsApp Web)
+
+### ⭐ Plan Pro - $35/mes
+**Para negocios establecidos con alto volumen**
+
+- ✅ Integración oficial **WhatsApp Business API**
+- ✅ Mensajes **ilimitados**
+- ✅ Backup automático cada **24 horas**
+- ✅ Búsqueda avanzada
+- ✅ Exportación masiva a PDF
+- ✅ Soporte prioritario
+- 🏢 Tecnología: **Meta Business API**
 
 ---
 
 ## 🚀 Características Principales
 
-### 📥 Backup Automático Diario
-- Respaldo completo de TODAS tus conversaciones cada 24 horas
+### 📥 Sistema de Backup Automático Inteligente
+- **Express**: Respaldo cada 12 horas (ideal para negocios dinámicos)
+- **Pro**: Respaldo cada 24 horas (óptimo para alto volumen)
+- Schedulers automáticos que funcionan 24/7
 - No pierdes mensajes aunque cambies de teléfono
-- Tus datos están seguros en tu propia base de datos
+- Tus datos seguros en base de datos PostgreSQL encriptada
 
-### 🔍 Búsqueda Instantánea
-- Encuentra cualquier conversación de hace meses en segundos
-- Busca por nombre, teléfono o contenido del mensaje
+### 🔍 Búsqueda Instantánea Avanzada
+- Encuentra cualquier conversación en segundos
+- Busca por nombre, teléfono, contenido o fecha
 - Accede a tu historial aunque WhatsApp esté caído
+- Filtros avanzados por contacto y período
 
-### 📄 Exportación a PDF
-- Exporta conversaciones completas para:
-  - Documentación legal
-  - Auditorías contables
-  - Registro de pedidos
-  - Comprobantes de acuerdos
+### 📄 Exportación Profesional a PDF
+- Genera PDFs profesionales de conversaciones
+- Útil para:
+  - 📋 Documentación legal
+  - 💰 Auditorías contables
+  - 📦 Registro de pedidos
+  - ✍️ Comprobantes de acuerdos
+- Marca de agua con timestamp
 
-### 🔐 Operación Continua
-- Accede a tus mensajes aunque WhatsApp esté fuera de línea
-- Continuidad operativa garantizada
-- Tus ventas nunca se detienen
+### 🔐 Continuidad Operativa Garantizada
+- Accede a tus mensajes aunque WhatsApp esté offline
+- Tu negocio nunca se detiene
+- Backup redundante y seguro
+- Autenticación JWT robusta
+
+### 📊 Dashboard Completo
+- Vista general de tus backups
+- Estadísticas de mensajes respaldados
+- Historial completo de respaldos
+- Gestión de tu plan y suscripción
 
 ---
 
@@ -53,16 +93,29 @@ Negocios que dependen de WhatsApp para ventas y servicio al cliente:
 
 ### Backend
 - **Python 3.12+** - Lenguaje principal
-- **FastAPI** - Framework web async
-- **SQLAlchemy** - ORM
-- **PostgreSQL** - Base de datos
-- **WhatsApp Business API** - Integración oficial de Meta
+- **FastAPI** - Framework web async de alto rendimiento
+- **SQLAlchemy 2.0** - ORM moderno
+- **PostgreSQL 13+** - Base de datos robusta
+- **Alembic** - Migraciones de base de datos
+- **JWT + Bcrypt** - Autenticación segura
+
+### Integraciones WhatsApp
+- **WhatsApp Business API** - Integración oficial de Meta (Plan Pro)
+- **Baileys** - Librería WhatsApp Web (Plan Express)
+- **Node.js Express** - Servidor Baileys independiente
 
 ### Frontend
-- **React 19** - Framework UI
-- **TypeScript** - Tipado estático
-- **Vite** - Build tool
-- **Tailwind CSS v4** - Estilos modernos
+- **React 19** - Framework UI moderno
+- **TypeScript 5** - Tipado estático
+- **Vite** - Build tool ultrarrápido
+- **Tailwind CSS v4** - Estilos utility-first
+- **React Router** - Navegación SPA
+
+### DevOps & Tools
+- **Docker** - Containerización
+- **Git/GitHub** - Control de versiones
+- **Uvicorn** - ASGI server
+- **npm** - Gestión de paquetes frontend
 
 ---
 
@@ -74,7 +127,7 @@ Negocios que dependen de WhatsApp para ventas y servicio al cliente:
 - PostgreSQL
 - Cuenta de WhatsApp Business con API activada
 
-### 1. Configuración del Backend
+### 1. Configuración del Backend (FastAPI)
 
 ```bash
 cd c:\CRM
@@ -85,15 +138,30 @@ python -m venv venv
 # Instalar dependencias
 pip install -r requirements.txt
 
-# Agregar reportlab para PDF export
-pip install reportlab
+# Configurar base de datos PostgreSQL
+# Editar .env con tus credenciales
 
-# Iniciar servidor
+# Ejecutar migraciones
+alembic upgrade head
+
+# Iniciar servidor backend
 uvicorn app.main:app --reload
 ```
 *El backend correrá en `http://localhost:8000`*
 
-### 2. Configuración del Frontend
+### 2. Configuración del Servidor Baileys (Node.js)
+
+```bash
+cd c:\CRM\baileys-server
+# Instalar dependencias
+npm install
+
+# Iniciar servidor Baileys
+npm start
+```
+*El servidor Baileys correrá en `http://localhost:3000`*
+
+### 3. Configuración del Frontend (React)
 
 ```bash
 cd c:\CRM\frontend
@@ -103,33 +171,77 @@ npm install
 # Iniciar servidor de desarrollo
 npm run dev
 ```
-*El frontend correrá en `http://localhost:5174`*
+*El frontend correrá en `http://localhost:5173`*
 
-### 3. Conectar WhatsApp Business
+### 4. Configurar WhatsApp
 
+#### Para Plan Express (QR Code):
+1. Regístrate en la app
+2. Selecciona "Plan Express"
+3. Escanea el código QR con WhatsApp
+4. ¡Listo! Backups cada 12 horas automáticamente
+
+#### Para Plan Pro (Business API):
 1. Ve a [Meta Business Manager](https://business.facebook.com)
 2. Configura WhatsApp Business API
 3. Obtén tu `Phone Number ID` y `Access Token`
-4. En la app, ve a "Conectar WhatsApp" y pega tus credenciales
-5. ¡Listo! Tu primer backup se creará automáticamente
+4. En la app, selecciona "Plan Pro" y pega tus credenciales
+5. ¡Listo! Backups cada 24 horas automáticamente
 
 ---
 
 ## 📂 Estructura del Proyecto
 
 ```
-/
-├── app/              # Backend (FastAPI)
-│   ├── api/          # Endpoints WhatsBackup
-│   ├── models/       # User, Message, Backup
-│   └── services/     # whatsapp_backup.py (core)
-├── frontend/         # Cliente Web (React)
+CRM/
+├── app/                      # Backend FastAPI
+│   ├── api/v1/endpoints/     # API Routes
+│   │   ├── auth.py          # Registro/Login
+│   │   ├── plans.py         # Gestión de planes
+│   │   ├── whatsapp.py      # Pro Plan (Meta API)
+│   │   ├── baileys.py       # Express Plan (Baileys)
+│   │   ├── backups_wa.py    # Historial de backups
+│   │   └── messages_wa.py   # Búsqueda/Exportación
+│   ├── models/              # SQLAlchemy Models
+│   │   ├── user.py          # Usuario + plan_type
+│   │   ├── message.py       # Mensajes respaldados
+│   │   ├── backup.py        # Backups + source
+│   │   └── subscription.py  # Suscripciones
+│   ├── services/            # Lógica de negocio
+│   │   ├── plans.py         # Límites y upgrades
+│   │   ├── whatsapp_backup.py
+│   │   └── backup_service.py
+│   ├── integrations/        # WhatsApp APIs
+│   │   ├── whatsapp_api.py  # Meta Business API
+│   │   └── whatsapp_baileys.py  # Baileys bridge
+│   ├── schedulers/          # Backups automáticos
+│   │   ├── express_backup.py  # Cada 12h
+│   │   └── pro_backup.py      # Cada 24h
+│   └── core/                # Config, auth, security
+├── baileys-server/          # Servidor Node.js
+│   ├── index.js            # Express server
+│   ├── package.json        # Dependencies
+│   └── sessions/           # WhatsApp sessions
+├── frontend/                # React SPA
 │   ├── src/
-│   │   └── pages/    
-│   │       ├── ConnectWhatsApp.tsx
-│   │       ├── BackupHistory.tsx
-│   │       └── MessageSearch.tsx
-└── scripts/          # Utilidades
+│   │   ├── pages/          # Páginas principales
+│   │   │   ├── Login.tsx
+│   │   │   ├── Pricing.tsx
+│   │   │   ├── ConnectExpress.tsx
+│   │   │   ├── ConnectPro.tsx
+│   │   │   ├── DashboardHome.tsx
+│   │   │   ├── BackupHistory.tsx
+│   │   │   └── MessageSearch.tsx
+│   │   ├── components/     # Componentes reutilizables
+│   │   └── layouts/        # Layouts
+│   └── package.json
+├── alembic/                # Migraciones DB
+├── scripts/                # Scripts utilidad
+│   ├── test_models.py
+│   └── migrate_to_whatsbackup.py
+├── .env                    # Variables entorno
+├── requirements.txt        # Python deps
+└── README.md              # Este archivo
 ```
 
 ---
@@ -144,10 +256,25 @@ npm run dev
 
 ## 📊 Flujo de Uso
 
-1. **Conectar WhatsApp** → Usuario ingresa credenciales de Meta Business
-2. **Backup Automático** → Sistema respalda mensajes cada 24 horas
-3. **Buscar Mensajes** → Usuario encuentra conversaciones antiguas
-4. **Exportar PDF** → Usuario descarga documentación legal
+### Onboarding
+1. **Registro** → Usuario crea cuenta (email/contraseña)
+2. **Selección de Plan** → Express ($18/mes) o Pro ($35/mes)
+3. **Conexión WhatsApp**:
+   - **Express**: Escanea QR code (Baileys)
+   - **Pro**: Ingresa credenciales de Meta Business API
+
+### Operación Diaria
+4. **Backup Automático** → Schedulers trabajan 24/7
+   - Express: cada 12 horas
+   - Pro: cada 24 horas
+5. **Dashboard** → Usuario ve estadísticas y últimos backups
+6. **Buscar Mensajes** → Encuentra conversaciones por fecha/contacto/keyword
+7. **Exportar PDF** → Descarga documentación legal profesional
+
+### Gestión
+8. **Upgrade de Plan** → De Express a Pro cuando sea necesario
+9. **Configuración** → Personaliza frecuencia de backups
+10. **Historial** → Revisa todos los backups anteriores
 
 ---
 
